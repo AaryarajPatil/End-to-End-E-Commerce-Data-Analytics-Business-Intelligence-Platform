@@ -5,11 +5,14 @@ Reads database credentials and pipeline parameters from environment variables or
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 
-# Load .env if present
-env_path = Path(__file__).resolve().parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
+# Load .env if python-dotenv is installed
+try:
+    from dotenv import load_dotenv
+    env_path = Path(__file__).resolve().parent.parent / ".env"
+    load_dotenv(dotenv_path=env_path)
+except ImportError:
+    pass
 
 # Database Configuration
 DB_HOST = os.getenv("DB_HOST", "localhost")
