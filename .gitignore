@@ -36,6 +36,10 @@ htmlcov/
 *.pem
 *.key
 
+# Logs
+logs/
+*.log
+
 # Large Datasets / Raw CSVs
 data/
 *.csv
